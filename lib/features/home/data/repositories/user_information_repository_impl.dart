@@ -5,7 +5,7 @@ import 'package:dartz/dartz.dart';
 import '../../../../core/failure/failure.dart';
 import '../../domain/entities/user_entity.dart';
 import '../../domain/repository/user_information_repository.dart';
-import '../data_sources/api_data_sources.dart';
+import '../data_sources/api_data_source.dart';
 import '../models/user_modele.dart';
 
 class UserInformationRepositoryImpl implements UserInformationRepository {
@@ -17,6 +17,19 @@ class UserInformationRepositoryImpl implements UserInformationRepository {
     try {
       final UserModel informationUser = await apiDataSources.getData();
       return right(informationUser.toEntity());
+    } catch (e) {
+      log(e.toString());
+      return left(Failure(
+          message: 'La récupération a échouer',
+          timestamp: DateTime.now().millisecondsSinceEpoch));
+    }
+  }
+
+  @override
+  Future<Either<Failure, Unit>> sendInformationUser() async {
+    try {
+      await apiDataSources.insertUserDataFromMath();
+      return right(unit);
     } catch (e) {
       log(e.toString());
       return left(Failure(

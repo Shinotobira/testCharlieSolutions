@@ -16,7 +16,8 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     required this.sendInformationUseCase,
     required this.getProfileUseCase,
   }) : super(GetMyUserInitialState()) {
-    on<GetUserEvent>((GetUserEvent event, Emitter<ProfileState> emit) async {
+    on<GetMyUserEvent>(
+        (GetMyUserEvent event, Emitter<ProfileState> emit) async {
       final Either<Failure, UserEntity> inputEither =
           await getProfileUseCase(NoParams());
       final Object inputEitherValue =
@@ -28,7 +29,8 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       }
     });
 
-    on<SendUserEvent>((SendUserEvent event, Emitter<ProfileState> emit) async {
+    on<SendMyUserEvent>(
+        (SendMyUserEvent event, Emitter<ProfileState> emit) async {
       final Either<Failure, Unit> inputEither =
           await sendInformationUseCase(event.userEntity);
       final Object inputEitherValue =

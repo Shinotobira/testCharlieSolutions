@@ -6,7 +6,12 @@ abstract class UserEvent extends Equatable {
   List<Object?> get props => <Object>[];
 }
 
-class GetMyUserEvent extends UserEvent {
+class GetUserEvent extends UserEvent {
+  @override
+  List<UserEntity> get props => <UserEntity>[];
+}
+
+class SendUserEvent extends UserEvent {
   @override
   List<UserEntity> get props => <UserEntity>[];
 }

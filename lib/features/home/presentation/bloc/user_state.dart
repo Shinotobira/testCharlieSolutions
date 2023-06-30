@@ -27,3 +27,15 @@ class GetUserFailureState extends UserState {
   @override
   List<String> get props => <String>[timestamp, message];
 }
+
+class SendUserSuccessState extends UserState {}
+
+class SendUserFailureState extends UserState {
+  SendUserFailureState({required this.message});
+
+  final String timestamp = DateTime.now().millisecondsSinceEpoch.toString();
+  final String message;
+
+  @override
+  List<String> get props => <String>[timestamp, message];
+}

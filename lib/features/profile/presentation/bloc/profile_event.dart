@@ -6,13 +6,13 @@ abstract class ProfileEvent extends Equatable {
   List<Object?> get props => <Object>[];
 }
 
-class GetUserEvent extends ProfileEvent {
+class GetMyUserEvent extends ProfileEvent {
   @override
   List<UserEntity> get props => <UserEntity>[];
 }
 
-class SendUserEvent extends ProfileEvent {
-  const SendUserEvent({required this.userEntity});
+class SendMyUserEvent extends ProfileEvent {
+  const SendMyUserEvent({required this.userEntity});
 
   final UserEntity userEntity;
 

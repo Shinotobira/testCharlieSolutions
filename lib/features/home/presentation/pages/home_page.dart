@@ -20,7 +20,7 @@ class HomeWidget extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: GestureDetector(
               onTap: () {
-                context.read<ProfileBloc>().add(GetUserEvent());
+                context.read<ProfileBloc>().add(GetMyUserEvent());
                 context.pushNamed('profile');
               },
               child: Padding(
@@ -40,7 +40,7 @@ class HomeWidget extends StatelessWidget {
                 child: Padding(
                   padding:
                       EdgeInsets.symmetric(horizontal: screenHeight * 0.024),
-                  child: Text('Alternant'),
+                  child: const Text('Alternant'),
                 ),
               ),
             ),
@@ -58,7 +58,7 @@ class HomeWidget extends StatelessWidget {
                   children: [
                     ElevatedButton(
                         onPressed: () {
-                          context.read<UserBloc>().add(GetMyUserEvent());
+                          context.read<UserBloc>().add(GetUserEvent());
                         },
                         style: ElevatedButton.styleFrom(
                           shape: const CircleBorder(),
@@ -66,7 +66,11 @@ class HomeWidget extends StatelessWidget {
                         ),
                         child: const Icon(Icons.close)),
                     ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          context.read<UserBloc>().add(SendUserEvent());
+
+                          context.read<UserBloc>().add(GetUserEvent());
+                        },
                         style: ElevatedButton.styleFrom(
                           shape: const CircleBorder(),
                           padding: EdgeInsets.all(screenHeight * 0.02),

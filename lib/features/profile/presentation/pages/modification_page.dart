@@ -157,8 +157,8 @@ class _ModificationProfilePageState extends State<ModificationProfilePage> {
 
                             context
                                 .read<ProfileBloc>()
-                                .add(SendUserEvent(userEntity: user));
-                            context.read<ProfileBloc>().add(GetUserEvent());
+                                .add(SendMyUserEvent(userEntity: user));
+                            context.read<ProfileBloc>().add(GetMyUserEvent());
                             context.pushNamed('profile');
                           },
                           child: const Text('Valider'),
