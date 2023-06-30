@@ -1,9 +1,11 @@
 import 'package:equatable/equatable.dart';
 
+import '../../data/models/user_modele.dart';
+
 class UserEntity extends Equatable {
   UserEntity(
       {required this.id,
-      required this.dob,
+      required this.age,
       required this.picture,
       required this.name,
       required this.phone,
@@ -11,7 +13,7 @@ class UserEntity extends Equatable {
       required this.email});
 
   String id;
-  int dob;
+  int age;
   String picture;
   String name;
   String phone;
@@ -23,9 +25,21 @@ class UserEntity extends Equatable {
         name,
         locations,
         email,
-        dob,
+        age,
         phone,
         id,
         picture,
       ];
+
+  UserModel toModel() {
+    return UserModel(
+      id: id,
+      age: age,
+      picture: picture,
+      name: name,
+      phone: phone,
+      locations: locations,
+      email: email,
+    );
+  }
 }

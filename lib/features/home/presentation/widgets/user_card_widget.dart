@@ -35,7 +35,7 @@ class UserCardWidget extends StatelessWidget {
                     child: Padding(
                       padding: EdgeInsets.only(
                           left: screenHeight * 0.01, top: screenHeight * 0.04),
-                      child: Text('Age: ${state.userEntity.dob}'),
+                      child: Text('Age: ${state.userEntity.age}'),
                     ),
                   ),
                   Align(

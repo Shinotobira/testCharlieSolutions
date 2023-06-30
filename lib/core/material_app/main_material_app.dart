@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:testcharliesolutions/features/profile/presentation/bloc/profile_bloc.dart';
 
 import '../../features/home/presentation/bloc/user_bloc.dart';
 import '../di/injection_dependencies.dart';
@@ -16,6 +17,9 @@ class MainMaterialApp extends StatelessWidget {
           create: (BuildContext context) =>
               getIt<UserBloc>()..add(GetMyUserEvent()),
         ),
+        BlocProvider<ProfileBloc>(
+          create: (BuildContext context) => getIt<ProfileBloc>(),
+        )
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
