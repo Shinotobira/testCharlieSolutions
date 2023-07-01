@@ -16,6 +16,8 @@ class TraineePage extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
+          title: const Text('Profile'),
+          centerTitle: true,
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
@@ -38,7 +40,12 @@ class TraineePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            context
+                                .read<SearchBloc>()
+                                .add(DeleteMatchEvent(id: user.id));
+                            context.pushNamed('/');
+                          },
                           style: ElevatedButton.styleFrom(
                             shape: const CircleBorder(),
                             padding: EdgeInsets.all(screenHeight * 0.02),

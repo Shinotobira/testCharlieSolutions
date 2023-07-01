@@ -49,13 +49,15 @@ class UserCardWidget extends StatelessWidget {
                     top: screenHeight * 0.06, bottom: screenHeight * 0.02),
                 child: Center(
                   child: SizedBox(
-                      width: screenHeight * 0.2,
-                      height: screenHeight * 0.2,
-                      child: ClipOval(
-                          child: Image.network(
+                    width: screenHeight * 0.2,
+                    height: screenHeight * 0.2,
+                    child: ClipOval(
+                      child: Image.network(
                         user.picture,
                         fit: BoxFit.cover,
-                      ))),
+                      ),
+                    ),
+                  ),
                 ),
               ),
             Center(child: Text(user.name)),
@@ -84,11 +86,13 @@ class UserCardWidget extends StatelessWidget {
               ),
             ),
             Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                    padding: EdgeInsets.only(
-                        left: screenHeight * 0.01, top: screenHeight * 0.04),
-                    child: Text('Adresse: ${user.locations}'))),
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: EdgeInsets.only(
+                    left: screenHeight * 0.01, top: screenHeight * 0.04),
+                child: Text('Adresse: ${user.locations}'),
+              ),
+            ),
           ],
         ),
       ),

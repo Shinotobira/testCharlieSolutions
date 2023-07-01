@@ -32,4 +32,18 @@ class SearchRepositoryImpl implements SearchRepository {
           timestamp: DateTime.now().millisecondsSinceEpoch));
     }
   }
+  @override
+  Future<Either<Failure, Unit>> deleteMatch(
+      String id) async {
+    try {
+
+      await searchDataSource.deleteMath(id);
+      return right(unit);
+    } catch (e) {
+      log(e.toString());
+      return left(Failure(
+          message: 'La récupération a échouer',
+          timestamp: DateTime.now().millisecondsSinceEpoch));
+    }
+  }
 }

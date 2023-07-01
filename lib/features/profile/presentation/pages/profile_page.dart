@@ -23,6 +23,8 @@ class ProfilePage extends StatelessWidget {
         email: '');
     return Scaffold(
       appBar: AppBar(
+        title: const Text('Profile'),
+        centerTitle: true,
         actions: [
           Padding(
             padding: EdgeInsets.only(right: screenWidth * 0.05),

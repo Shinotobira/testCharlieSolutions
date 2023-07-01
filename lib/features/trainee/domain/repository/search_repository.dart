@@ -5,4 +5,6 @@ import '../../../home/domain/entities/user_entity.dart';
 
 abstract class SearchRepository {
   Future<Either<Failure, List<UserEntity>>> getInformationUsers(String value);
+
+  Future<Either<Failure, Unit>> deleteMatch(String id);
 }

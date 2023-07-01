@@ -27,3 +27,16 @@ class SearchFailureState extends SearchState {
   @override
   List<String> get props => <String>[timestamp, message];
 }
+
+class DeleteSuccessState extends SearchState {
+}
+
+class DeleteFailureState extends SearchState {
+  DeleteFailureState({required this.message});
+
+  final String timestamp = DateTime.now().millisecondsSinceEpoch.toString();
+  final String message;
+
+  @override
+  List<String> get props => <String>[timestamp, message];
+}

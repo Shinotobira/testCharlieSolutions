@@ -22,4 +22,17 @@ class SearchDataSource {
         tableData.map((data) => UserModel.fromJson2(data)).toList();
     return users;
   }
+
+  Future<void> deleteMath(String id) async {
+    String databasesPath = await getDatabasesPath();
+    String dbPath = join(databasesPath, 'charlieSolutions.db');
+    Database database = await openDatabase(dbPath);
+
+    await database.delete(
+      'user',
+      where: 'id = $id',
+    );
+
+    await database.close();
+  }
 }

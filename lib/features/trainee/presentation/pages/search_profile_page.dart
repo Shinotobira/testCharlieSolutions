@@ -6,13 +6,16 @@ import 'package:testcharliesolutions/features/trainee/presentation/bloc/search_b
 import '../../../home/domain/entities/user_entity.dart';
 import '../../../home/presentation/bloc/user_bloc.dart';
 
-class SearchProfilPage extends StatelessWidget {
-  SearchProfilPage({super.key});
+class SearchProfilePage extends StatelessWidget {
+  const SearchProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('Recherche'),
+        centerTitle: true,
+      ),
       body: Column(
         children: [
           Padding(

@@ -13,3 +13,11 @@ class GetListUserEvent extends SearchEvent {
   @override
   List<UserEntity> get props => <UserEntity>[];
 }
+
+class DeleteMatchEvent extends SearchEvent {
+  const DeleteMatchEvent({required this.id});
+
+  final String id;
+  @override
+  List<UserEntity> get props => <UserEntity>[];
+}

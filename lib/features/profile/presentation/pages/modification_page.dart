@@ -43,7 +43,10 @@ class _ModificationProfilePageState extends State<ModificationProfilePage> {
     final double screenWidth = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          title: const Text('Modification du profile'),
+          centerTitle: true,
+        ),
         body: SingleChildScrollView(
           child: SizedBox(
             height: screenHeight * 0.80,

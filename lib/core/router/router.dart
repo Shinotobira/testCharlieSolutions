@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:testcharliesolutions/features/profile/presentation/pages/modification_page.dart';
 import 'package:testcharliesolutions/features/profile/presentation/pages/profile_page.dart';
-import 'package:testcharliesolutions/features/trainee/presentation/pages/search_profil_page.dart';
+import 'package:testcharliesolutions/features/trainee/presentation/pages/search_profile_page.dart';
 import 'package:testcharliesolutions/features/trainee/presentation/pages/trainee_page.dart';
 
 import '../../features/home/domain/entities/user_entity.dart';
@@ -45,7 +45,7 @@ final GoRouter router = GoRouter(
       path: '/search_profile',
       name: 'search_profile',
       builder: (BuildContext context, GoRouterState state) {
-        return SearchProfilPage();
+        return SearchProfilePage();
       },
     ),
   ],

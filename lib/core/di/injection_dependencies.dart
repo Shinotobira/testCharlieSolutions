@@ -9,6 +9,7 @@ import 'package:testcharliesolutions/features/profile/presentation/bloc/profile_
 import 'package:testcharliesolutions/features/trainee/data/data_sources/search_data_source.dart';
 import 'package:testcharliesolutions/features/trainee/data/repositories/search_repository_impl.dart';
 import 'package:testcharliesolutions/features/trainee/domain/repository/search_repository.dart';
+import 'package:testcharliesolutions/features/trainee/domain/use_cases/delete_match_use_case.dart';
 import 'package:testcharliesolutions/features/trainee/domain/use_cases/get_user_list_research_use_case.dart';
 import 'package:testcharliesolutions/features/trainee/presentation/bloc/search_bloc.dart';
 
@@ -34,8 +35,8 @@ void initBloc() {
       getUserInformationUseCase: getIt(), sendUserInformationUseCase: getIt()));
   getIt.registerFactory(() =>
       ProfileBloc(getProfileUseCase: getIt(), sendInformationUseCase: getIt()));
-  getIt.registerFactory(
-      () => SearchBloc(getUserListFromResearchUseCase: getIt()));
+  getIt.registerFactory(() => SearchBloc(
+      getUserListFromResearchUseCase: getIt(), deleteMatchUseCase: getIt()));
 }
 
 void initUseCase() {
@@ -44,6 +45,7 @@ void initUseCase() {
   getIt.registerLazySingleton(() => GetProfileUseCase(getIt()));
   getIt.registerLazySingleton(() => SendUserInformationUseCase(getIt()));
   getIt.registerLazySingleton(() => GetUserListFromResearchUseCase(getIt()));
+  getIt.registerLazySingleton(() => DeleteMatchUseCase(getIt()));
 }
 
 void initRepositories() {
