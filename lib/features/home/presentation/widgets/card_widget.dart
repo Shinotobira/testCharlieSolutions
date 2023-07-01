@@ -17,21 +17,53 @@ class UserCardWidget extends StatelessWidget {
       height: screenHeight * 0.7,
       width: screenWidth * 0.80,
       child: Card(
+        elevation: 10,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(screenHeight * 0.04),
+        ),
         child: Column(
           children: [
-            SizedBox(
-              height: screenHeight * 0.3,
-              child: CircleAvatar(
-                radius: screenHeight * 0.10,
-                backgroundImage: NetworkImage(user.picture),
+            if (user.picture.isEmpty)
+              Padding(
+                padding: EdgeInsets.only(
+                    top: screenHeight * 0.06, bottom: screenHeight * 0.02),
+                child: Center(
+                  child: Container(
+                    width: screenHeight * 0.2,
+                    height: screenHeight * 0.2,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.blue,
+                    ),
+                    child: Icon(
+                      Icons.person,
+                      size: screenHeight * 0.1,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              )
+            else
+              Padding(
+                padding: EdgeInsets.only(
+                    top: screenHeight * 0.06, bottom: screenHeight * 0.02),
+                child: Center(
+                  child: SizedBox(
+                      width: screenHeight * 0.2,
+                      height: screenHeight * 0.2,
+                      child: ClipOval(
+                          child: Image.network(
+                        user.picture,
+                        fit: BoxFit.cover,
+                      ))),
+                ),
               ),
-            ),
             Center(child: Text(user.name)),
             Align(
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: EdgeInsets.only(
-                    left: screenHeight * 0.01, top: screenHeight * 0.04),
+                    left: screenHeight * 0.01, top: screenHeight * 0.06),
                 child: Text('Age: ${user.age}'),
               ),
             ),

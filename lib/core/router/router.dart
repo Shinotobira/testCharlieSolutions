@@ -29,7 +29,7 @@ final GoRouter router = GoRouter(
       path: '/modification_profile',
       name: 'modification_profile',
       builder: (BuildContext context, GoRouterState state) {
-        return const ModificationProfilePage();
+        return ModificationProfilePage(user: state.extra! as UserEntity);
       },
     ),
     GoRoute(
