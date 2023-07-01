@@ -41,183 +41,180 @@ class _ModificationProfilePageState extends State<ModificationProfilePage> {
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Modification du profile'),
-          centerTitle: true,
-        ),
-        body: SingleChildScrollView(
-          child: SizedBox(
-            height: screenHeight * 0.80,
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(top: screenHeight * 0.008),
-                  child: Center(
-                      child: SizedBox(
-                    height: screenHeight * 0.7,
-                    width: screenWidth * 0.80,
-                    child: Card(
-                      elevation: 10,
-                      shape: RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.circular(screenHeight * 0.04),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: screenWidth * 0.02),
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(
-                                  top: screenHeight * 0.04,
-                                  bottom: screenHeight * 0.02),
-                              child: Center(
-                                child: Container(
-                                  width: screenHeight * 0.15,
-                                  height: screenHeight * 0.15,
-                                  decoration: const BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.blue,
-                                  ),
-                                  child: Icon(
-                                    Icons.person,
-                                    size: screenHeight * 0.1,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Center(
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        MediaQuery.of(context).size.width *
-                                            0.02),
-                                child: TextFormField(
-                                  controller: nameController,
-                                  keyboardType: TextInputType.text,
-                                  decoration: InputDecoration(
-                                      labelText: 'Nom, Prénom',
-                                      errorText: nameController.text.isNotEmpty
-                                          ? null
-                                          : 'Ce champ est requis'),
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        MediaQuery.of(context).size.width *
-                                            0.02),
-                                child: TextFormField(
-                                  controller: phoneController,
-                                  keyboardType: TextInputType.phone,
-                                  decoration: InputDecoration(
-                                      labelText: 'Numéro',
-                                      errorText: phoneController.text.isNotEmpty
-                                          ? null
-                                          : 'Ce champ est requis'),
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        MediaQuery.of(context).size.width *
-                                            0.02),
-                                child: TextFormField(
-                                  controller: ageController,
-                                  keyboardType: TextInputType.number,
-                                  decoration: InputDecoration(
-                                      labelText: 'Age',
-                                      errorText: ageController.text.isNotEmpty
-                                          ? null
-                                          : 'Ce champ est requis'),
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        MediaQuery.of(context).size.width *
-                                            0.02),
-                                child: TextFormField(
-                                    controller: emailController,
-                                    keyboardType: TextInputType.emailAddress,
-                                    decoration: InputDecoration(
-                                        labelText: 'Email',
-                                        errorText:
-                                            emailController.text.isNotEmpty
-                                                ? null
-                                                : 'Ce champ est requis')),
-                              ),
-                            ),
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        MediaQuery.of(context).size.width *
-                                            0.02),
-                                child: TextFormField(
-                                  controller: adresseController,
-                                  keyboardType: TextInputType.text,
-                                  decoration: InputDecoration(
-                                      labelText: 'Adresse',
-                                      errorText:
-                                          adresseController.text.isNotEmpty
-                                              ? null
-                                              : 'Ce champ est requis'),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Modification du profile'),
+        centerTitle: true,
+      ),
+      body: SingleChildScrollView(
+        child: SizedBox(
+          height: screenHeight * 0.80,
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(top: screenHeight * 0.008),
+                child: Center(
+                    child: SizedBox(
+                  height: screenHeight * 0.7,
+                  width: screenWidth * 0.80,
+                  child: Card(
+                    elevation: 10,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(screenHeight * 0.04),
                     ),
-                  )),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: screenHeight * 0.02),
-                  child: Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            if (isFormValid()) {
-                              UserEntity user = UserEntity(
-                                  id: '1',
-                                  age: int.parse(ageController.text),
-                                  picture: '',
-                                  name: nameController.text,
-                                  phone: phoneController.text,
-                                  locations: adresseController.text,
-                                  email: emailController.text);
-
-                              context
-                                  .read<ProfileBloc>()
-                                  .add(SendMyUserEvent(userEntity: user));
-                              context.read<ProfileBloc>().add(GetMyUserEvent());
-                              context.pushNamed('profile');
-                            }
-                          },
-                          child: const Text('Valider'),
-                        ),
-                      ],
+                    child: Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: screenWidth * 0.02),
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(
+                                top: screenHeight * 0.04,
+                                bottom: screenHeight * 0.02),
+                            child: Center(
+                              child: Container(
+                                width: screenHeight * 0.15,
+                                height: screenHeight * 0.15,
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.blue,
+                                ),
+                                child: Icon(
+                                  Icons.person,
+                                  size: screenHeight * 0.1,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Center(
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      MediaQuery.of(context).size.width * 0.02),
+                              child: TextFormField(
+                                controller: nameController,
+                                keyboardType: TextInputType.text,
+                                decoration: InputDecoration(
+                                    labelText: 'Nom, Prénom',
+                                    errorText: nameController.text.isNotEmpty
+                                        ? null
+                                        : 'Ce champ est requis'),
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      MediaQuery.of(context).size.width * 0.02),
+                              child: TextFormField(
+                                controller: phoneController,
+                                keyboardType: TextInputType.phone,
+                                decoration: InputDecoration(
+                                    labelText: 'Numéro',
+                                    errorText: phoneController.text.isNotEmpty
+                                        ? null
+                                        : 'Ce champ est requis'),
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      MediaQuery.of(context).size.width * 0.02),
+                              child: TextFormField(
+                                controller: ageController,
+                                keyboardType: TextInputType.number,
+                                decoration: InputDecoration(
+                                    labelText: 'Age',
+                                    errorText: ageController.text.isNotEmpty
+                                        ? null
+                                        : 'Ce champ est requis'),
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      MediaQuery.of(context).size.width * 0.02),
+                              child: TextFormField(
+                                  controller: emailController,
+                                  keyboardType: TextInputType.emailAddress,
+                                  decoration: InputDecoration(
+                                      labelText: 'Email',
+                                      errorText: emailController.text.isNotEmpty
+                                          ? null
+                                          : 'Ce champ est requis')),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      MediaQuery.of(context).size.width * 0.02),
+                              child: TextFormField(
+                                controller: adresseController,
+                                keyboardType: TextInputType.text,
+                                decoration: InputDecoration(
+                                    labelText: 'Adresse',
+                                    errorText: adresseController.text.isNotEmpty
+                                        ? null
+                                        : 'Ce champ est requis'),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
+                )),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: screenHeight * 0.02),
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {
+                          if (isFormValid()) {
+                            UserEntity user = UserEntity(
+                                id: '1',
+                                age: int.parse(ageController.text),
+                                picture: '',
+                                name: nameController.text,
+                                phone: phoneController.text,
+                                locations: adresseController.text,
+                                email: emailController.text);
+
+                            context
+                                .read<ProfileBloc>()
+                                .add(SendMyUserEvent(userEntity: user));
+                            context.read<ProfileBloc>().add(GetMyUserEvent());
+                            context.pushNamed('profile');
+                          }
+                        },
+                        style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.circular(screenHeight * 0.025),
+                            ),
+                            minimumSize:
+                                Size(screenWidth * 0.1, screenHeight * 0.055)),
+                        child: const Text('Valider'),
+                      ),
+                    ],
+                  ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

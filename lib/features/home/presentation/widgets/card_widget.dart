@@ -24,49 +24,95 @@ class UserCardWidget extends StatelessWidget {
         child: Column(
           children: [
             if (user.picture.isEmpty)
-              Padding(
-                padding: EdgeInsets.only(
-                    top: screenHeight * 0.06, bottom: screenHeight * 0.02),
-                child: Center(
-                  child: Container(
-                    width: screenHeight * 0.2,
-                    height: screenHeight * 0.2,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.blue,
+              Container(
+                decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(screenHeight * 0.04)),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
+                          top: screenHeight * 0.06,
+                          bottom: screenHeight * 0.02),
+                      child: Center(
+                        child: Container(
+                          width: screenHeight * 0.2,
+                          height: screenHeight * 0.2,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white,
+                          ),
+                          child: Icon(
+                            Icons.person,
+                            size: screenHeight * 0.1,
+                            color: Colors.blue,
+                          ),
+                        ),
+                      ),
                     ),
-                    child: Icon(
-                      Icons.person,
-                      size: screenHeight * 0.1,
-                      color: Colors.white,
+                    Padding(
+                      padding: EdgeInsets.only(bottom: screenHeight * 0.02),
+                      child: Center(
+                          child: Text(
+                        user.name,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: screenHeight * 0.03),
+                      )),
                     ),
-                  ),
+                  ],
                 ),
               )
             else
-              Padding(
-                padding: EdgeInsets.only(
-                    top: screenHeight * 0.06, bottom: screenHeight * 0.02),
-                child: Center(
-                  child: SizedBox(
-                    width: screenHeight * 0.2,
-                    height: screenHeight * 0.2,
-                    child: ClipOval(
-                      child: Image.network(
-                        user.picture,
-                        fit: BoxFit.cover,
+              Container(
+                decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(screenHeight * 0.04)),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
+                          top: screenHeight * 0.06,
+                          bottom: screenHeight * 0.02),
+                      child: Center(
+                        child: SizedBox(
+                          width: screenHeight * 0.2,
+                          height: screenHeight * 0.2,
+                          child: ClipOval(
+                            child: Image.network(
+                              user.picture,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
+                    Padding(
+                      padding: EdgeInsets.only(bottom: screenHeight * 0.02),
+                      child: Center(
+                          child: Text(
+                        user.name,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: screenHeight * 0.03),
+                      )),
+                    ),
+                  ],
                 ),
               ),
-            Center(child: Text(user.name)),
             Align(
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: EdgeInsets.only(
-                    left: screenHeight * 0.01, top: screenHeight * 0.06),
-                child: Text('Age: ${user.age}'),
+                    left: screenHeight * 0.01, top: screenHeight * 0.04),
+                child: Row(
+                  children: [
+                    const Icon(Icons.calendar_month),
+                    Text(': ${user.age} ans'),
+                  ],
+                ),
               ),
             ),
             Align(
@@ -74,7 +120,12 @@ class UserCardWidget extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.only(
                     left: screenHeight * 0.01, top: screenHeight * 0.04),
-                child: Text('Numéro: ${user.phone}'),
+                child: Row(
+                  children: [
+                    const Icon(Icons.phone),
+                    Text(': ${user.phone}'),
+                  ],
+                ),
               ),
             ),
             Align(
@@ -82,7 +133,12 @@ class UserCardWidget extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.only(
                     left: screenHeight * 0.01, top: screenHeight * 0.04),
-                child: Text('Email: ${user.email}'),
+                child: Row(
+                  children: [
+                    const Icon(Icons.email),
+                    Text(': ${user.email}'),
+                  ],
+                ),
               ),
             ),
             Align(
@@ -90,7 +146,12 @@ class UserCardWidget extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.only(
                     left: screenHeight * 0.01, top: screenHeight * 0.04),
-                child: Text('Adresse: ${user.locations}'),
+                child: Row(
+                  children: [
+                    const Icon(Icons.home),
+                    Text(': ${user.locations}'),
+                  ],
+                ),
               ),
             ),
           ],

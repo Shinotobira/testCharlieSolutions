@@ -61,6 +61,13 @@ class ProfilePage extends StatelessWidget {
                     onPressed: () {
                       context.pushNamed('modification_profile', extra: user);
                     },
+                    style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular(screenHeight * 0.025),
+                        ),
+                        minimumSize:
+                            Size(screenWidth * 0.1, screenHeight * 0.055)),
                     child: const Text('Modifier'),
                   ),
                 ),

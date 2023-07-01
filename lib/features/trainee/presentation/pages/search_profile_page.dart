@@ -11,6 +11,7 @@ class SearchProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Recherche'),
@@ -19,15 +20,17 @@ class SearchProfilePage extends StatelessWidget {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(screenHeight * 0.02),
             child: TextField(
               onChanged: (String value) {
                 context.read<SearchBloc>().add(GetListUserEvent(value: value));
               },
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 labelText: 'Rechercher un profile',
-                prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(),
+                prefixIcon: const Icon(Icons.search),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(screenHeight * 0.025),
+                ),
               ),
             ),
           ),

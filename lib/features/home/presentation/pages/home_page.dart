@@ -66,6 +66,7 @@ class HomePage extends StatelessWidget {
                             context.read<UserBloc>().add(GetUserEvent());
                           },
                           style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.red,
                             shape: const CircleBorder(),
                             padding: EdgeInsets.all(screenHeight * 0.02),
                           ),
@@ -77,6 +78,7 @@ class HomePage extends StatelessWidget {
                             context.read<UserBloc>().add(GetUserEvent());
                           },
                           style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.green,
                             shape: const CircleBorder(),
                             padding: EdgeInsets.all(screenHeight * 0.02),
                           ),

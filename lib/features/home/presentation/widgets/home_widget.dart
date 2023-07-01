@@ -11,6 +11,7 @@ class HomeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double screenHeight = MediaQuery.of(context).size.height;
     return BlocBuilder<UserBloc, UserState>(
       builder: (BuildContext context, UserState state) {
         if (state is GetUserInitialState) {
@@ -20,7 +21,9 @@ class HomeWidget extends StatelessWidget {
             user: state.userEntity,
           );
         } else {
-          return const Center(child: CircularProgressIndicator());
+          return SizedBox(
+              height: screenHeight * 0.7,
+              child: const Center(child: CircularProgressIndicator()));
         }
       },
     );

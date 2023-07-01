@@ -47,6 +47,7 @@ class TraineePage extends StatelessWidget {
                             context.pushNamed('/');
                           },
                           style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.red,
                             shape: const CircleBorder(),
                             padding: EdgeInsets.all(screenHeight * 0.02),
                           ),
