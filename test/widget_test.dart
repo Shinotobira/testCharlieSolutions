@@ -12,7 +12,7 @@ import 'package:testcharliesolutions/features/home/presentation/pages/home_page.
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const HomeWidget());
+    await tester.pumpWidget(const HomePage());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

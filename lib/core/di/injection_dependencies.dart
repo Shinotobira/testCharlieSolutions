@@ -6,6 +6,11 @@ import 'package:testcharliesolutions/features/profile/domain/repository/profile_
 import 'package:testcharliesolutions/features/profile/domain/use_cases/get_profile_use_case.dart';
 import 'package:testcharliesolutions/features/profile/domain/use_cases/send_information_profile_use_case.dart';
 import 'package:testcharliesolutions/features/profile/presentation/bloc/profile_bloc.dart';
+import 'package:testcharliesolutions/features/trainee/data/data_sources/search_data_source.dart';
+import 'package:testcharliesolutions/features/trainee/data/repositories/search_repository_impl.dart';
+import 'package:testcharliesolutions/features/trainee/domain/repository/search_repository.dart';
+import 'package:testcharliesolutions/features/trainee/domain/use_cases/get_user_list_research_use_case.dart';
+import 'package:testcharliesolutions/features/trainee/presentation/bloc/search_bloc.dart';
 
 import '../../features/home/data/data_sources/api_data_source.dart';
 import '../../features/home/data/repositories/user_information_repository_impl.dart';
@@ -29,6 +34,8 @@ void initBloc() {
       getUserInformationUseCase: getIt(), sendUserInformationUseCase: getIt()));
   getIt.registerFactory(() =>
       ProfileBloc(getProfileUseCase: getIt(), sendInformationUseCase: getIt()));
+  getIt.registerFactory(
+      () => SearchBloc(getUserListFromResearchUseCase: getIt()));
 }
 
 void initUseCase() {
@@ -36,6 +43,7 @@ void initUseCase() {
   getIt.registerLazySingleton(() => SendInformationUseCase(getIt()));
   getIt.registerLazySingleton(() => GetProfileUseCase(getIt()));
   getIt.registerLazySingleton(() => SendUserInformationUseCase(getIt()));
+  getIt.registerLazySingleton(() => GetUserListFromResearchUseCase(getIt()));
 }
 
 void initRepositories() {
@@ -43,11 +51,14 @@ void initRepositories() {
       () => UserInformationRepositoryImpl(getIt()));
   getIt.registerLazySingleton<ProfileRepository>(
       () => ProfileRepositoryImpl(getIt()));
+  getIt.registerLazySingleton<SearchRepository>(
+      () => SearchRepositoryImpl(getIt()));
 }
 
 void initDataSources() {
   getIt.registerLazySingleton(() => ApiDataSources());
   getIt.registerLazySingleton(() => ProfileDataSources());
+  getIt.registerLazySingleton(() => SearchDataSource());
 }
 
 void initExternal() {}

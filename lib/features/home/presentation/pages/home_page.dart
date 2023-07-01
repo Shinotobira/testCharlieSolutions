@@ -3,11 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:testcharliesolutions/features/profile/presentation/bloc/profile_bloc.dart';
 
+import '../../../trainee/presentation/bloc/search_bloc.dart';
 import '../bloc/user_bloc.dart';
-import '../widgets/user_card_widget.dart';
+import '../widgets/home_widget.dart';
 
-class HomeWidget extends StatelessWidget {
-  const HomeWidget({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,10 @@ class HomeWidget extends StatelessWidget {
               alignment: Alignment.centerRight,
               child: GestureDetector(
                 onTap: () {
-                  // Logique à exécuter lorsque le premier texte est cliqué
+                  context
+                      .read<SearchBloc>()
+                      .add(const GetListUserEvent(value: ''));
+                  context.pushNamed('search_profile');
                 },
                 child: Padding(
                   padding:
@@ -46,39 +50,41 @@ class HomeWidget extends StatelessWidget {
             ),
           ],
         ),
-        body: Center(
-          child: Column(children: <Widget>[
-            Padding(
-                padding: EdgeInsets.only(top: screenHeight * 0.01),
-                child: const UserCardWidget()),
-            Padding(
-              padding: EdgeInsets.only(top: screenHeight * 0.05),
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
-                        onPressed: () {
-                          context.read<UserBloc>().add(GetUserEvent());
-                        },
-                        style: ElevatedButton.styleFrom(
-                          shape: const CircleBorder(),
-                          padding: EdgeInsets.all(screenHeight * 0.02),
-                        ),
-                        child: const Icon(Icons.close)),
-                    ElevatedButton(
-                        onPressed: () {
-                          context.read<UserBloc>().add(SendUserEvent());
+        body: SingleChildScrollView(
+          child: Center(
+            child: Column(children: <Widget>[
+              Padding(
+                  padding: EdgeInsets.only(top: screenHeight * 0.01),
+                  child: const HomeWidget()),
+              Padding(
+                padding: EdgeInsets.only(top: screenHeight * 0.05),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(
+                          onPressed: () {
+                            context.read<UserBloc>().add(GetUserEvent());
+                          },
+                          style: ElevatedButton.styleFrom(
+                            shape: const CircleBorder(),
+                            padding: EdgeInsets.all(screenHeight * 0.02),
+                          ),
+                          child: const Icon(Icons.close)),
+                      ElevatedButton(
+                          onPressed: () {
+                            context.read<UserBloc>().add(SendUserEvent());
 
-                          context.read<UserBloc>().add(GetUserEvent());
-                        },
-                        style: ElevatedButton.styleFrom(
-                          shape: const CircleBorder(),
-                          padding: EdgeInsets.all(screenHeight * 0.02),
-                        ),
-                        child: const Icon(Icons.check)),
-                  ]),
-            )
-          ]),
+                            context.read<UserBloc>().add(GetUserEvent());
+                          },
+                          style: ElevatedButton.styleFrom(
+                            shape: const CircleBorder(),
+                            padding: EdgeInsets.all(screenHeight * 0.02),
+                          ),
+                          child: const Icon(Icons.check)),
+                    ]),
+              )
+            ]),
+          ),
         ));
   }
 }
