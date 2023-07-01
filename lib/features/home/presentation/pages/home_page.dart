@@ -73,6 +73,15 @@ class HomePage extends StatelessWidget {
                           child: const Icon(Icons.close)),
                       ElevatedButton(
                           onPressed: () {
+                            context.pushNamed('random_profile');
+                          },
+                          style: ElevatedButton.styleFrom(
+                            shape: const CircleBorder(),
+                            padding: EdgeInsets.all(screenHeight * 0.02),
+                          ),
+                          child: const Icon(Icons.question_mark)),
+                      ElevatedButton(
+                          onPressed: () {
                             context.read<UserBloc>().add(SendUserEvent());
 
                             context.read<UserBloc>().add(GetUserEvent());

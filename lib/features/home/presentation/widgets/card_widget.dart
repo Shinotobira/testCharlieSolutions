@@ -64,6 +64,43 @@ class UserCardWidget extends StatelessWidget {
                   ],
                 ),
               )
+            else if (user.picture != "assets/images/best.jpg")
+              Container(
+                decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(screenHeight * 0.04)),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
+                          top: screenHeight * 0.06,
+                          bottom: screenHeight * 0.02),
+                      child: SizedBox(
+                        width: screenHeight * 0.2,
+                        height: screenHeight * 0.2,
+                        child: ClipOval(
+                          child: Image.network(
+                            user.picture,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(bottom: screenHeight * 0.02),
+                      child: Center(
+                          child: Text(
+                        user.name,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: screenHeight * 0.03),
+                      )),
+                    ),
+                  ],
+                ),
+              )
             else
               Container(
                 decoration: BoxDecoration(
@@ -80,7 +117,7 @@ class UserCardWidget extends StatelessWidget {
                           width: screenHeight * 0.2,
                           height: screenHeight * 0.2,
                           child: ClipOval(
-                            child: Image.network(
+                            child: Image.asset(
                               user.picture,
                               fit: BoxFit.cover,
                             ),
