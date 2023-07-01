@@ -93,6 +93,7 @@ class UserCardWidget extends StatelessWidget {
                       child: Center(
                           child: Text(
                         user.name,
+                        overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -106,11 +107,18 @@ class UserCardWidget extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: EdgeInsets.only(
-                    left: screenHeight * 0.01, top: screenHeight * 0.04),
+                    left: screenHeight * 0.02,
+                    right: screenHeight * 0.02,
+                    top: screenHeight * 0.04),
                 child: Row(
                   children: [
                     const Icon(Icons.calendar_month),
-                    Text(': ${user.age} ans'),
+                    Flexible(
+                      child: Text(
+                        ': ${user.age} ans',
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -119,11 +127,18 @@ class UserCardWidget extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: EdgeInsets.only(
-                    left: screenHeight * 0.01, top: screenHeight * 0.04),
+                    left: screenHeight * 0.02,
+                    right: screenHeight * 0.02,
+                    top: screenHeight * 0.04),
                 child: Row(
                   children: [
                     const Icon(Icons.phone),
-                    Text(': ${user.phone}'),
+                    Flexible(
+                      child: Text(
+                        ': ${user.phone}',
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -132,11 +147,18 @@ class UserCardWidget extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: EdgeInsets.only(
-                    left: screenHeight * 0.01, top: screenHeight * 0.04),
+                    left: screenHeight * 0.02,
+                    right: screenHeight * 0.02,
+                    top: screenHeight * 0.04),
                 child: Row(
                   children: [
                     const Icon(Icons.email),
-                    Text(': ${user.email}'),
+                    Flexible(
+                      child: Text(
+                        ': ${user.email}',
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -145,11 +167,18 @@ class UserCardWidget extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: EdgeInsets.only(
-                    left: screenHeight * 0.01, top: screenHeight * 0.04),
+                    left: screenHeight * 0.02,
+                    right: screenHeight * 0.02,
+                    top: screenHeight * 0.04),
                 child: Row(
                   children: [
                     const Icon(Icons.home),
-                    Text(': ${user.locations}'),
+                    Flexible(
+                      child: Text(
+                        ': ${user.locations}',
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
                   ],
                 ),
               ),
