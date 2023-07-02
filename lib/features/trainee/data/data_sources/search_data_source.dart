@@ -30,7 +30,8 @@ class SearchDataSource {
 
     await database.delete(
       'user',
-      where: 'id = $id',
+      where: 'id = ?',
+      whereArgs: [id],
     );
 
     await database.close();
