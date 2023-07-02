@@ -55,6 +55,8 @@ class UserCardWidget extends StatelessWidget {
                       child: Center(
                           child: Text(
                         user.name,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -92,6 +94,7 @@ class UserCardWidget extends StatelessWidget {
                           child: Text(
                         user.name,
                         overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -131,6 +134,7 @@ class UserCardWidget extends StatelessWidget {
                           child: Text(
                         user.name,
                         overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
