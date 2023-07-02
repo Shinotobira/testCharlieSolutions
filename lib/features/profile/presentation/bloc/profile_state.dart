@@ -39,3 +39,15 @@ class SendMyUserFailureState extends ProfileState {
   @override
   List<String> get props => <String>[timestamp, message];
 }
+
+class HasProfileState extends ProfileState {}
+
+class HasNotProfileState extends ProfileState {
+  HasNotProfileState({required this.message});
+
+  final String timestamp = DateTime.now().millisecondsSinceEpoch.toString();
+  final String message;
+
+  @override
+  List<String> get props => <String>[timestamp, message];
+}

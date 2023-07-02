@@ -4,6 +4,7 @@ import 'package:testcharliesolutions/features/profile/data/data_sources/profile_
 import 'package:testcharliesolutions/features/profile/data/repositories/profile_repository_impl.dart';
 import 'package:testcharliesolutions/features/profile/domain/repository/profile_repository.dart';
 import 'package:testcharliesolutions/features/profile/domain/use_cases/get_profile_use_case.dart';
+import 'package:testcharliesolutions/features/profile/domain/use_cases/has_profile_use_case.dart';
 import 'package:testcharliesolutions/features/profile/domain/use_cases/send_information_profile_use_case.dart';
 import 'package:testcharliesolutions/features/profile/presentation/bloc/profile_bloc.dart';
 import 'package:testcharliesolutions/features/trainee/data/data_sources/search_data_source.dart';
@@ -33,8 +34,10 @@ Future<void> initInjectionDependencies() async {
 void initBloc() {
   getIt.registerFactory(() => UserBloc(
       getUserInformationUseCase: getIt(), sendUserInformationUseCase: getIt()));
-  getIt.registerFactory(() =>
-      ProfileBloc(getProfileUseCase: getIt(), sendInformationUseCase: getIt()));
+  getIt.registerFactory(() => ProfileBloc(
+      getProfileUseCase: getIt(),
+      sendInformationUseCase: getIt(),
+      hasProfileUseCase: getIt()));
   getIt.registerFactory(() => SearchBloc(
       getUserListFromResearchUseCase: getIt(), deleteMatchUseCase: getIt()));
 }
@@ -46,6 +49,7 @@ void initUseCase() {
   getIt.registerLazySingleton(() => SendUserInformationUseCase(getIt()));
   getIt.registerLazySingleton(() => GetUserListFromResearchUseCase(getIt()));
   getIt.registerLazySingleton(() => DeleteMatchUseCase(getIt()));
+  getIt.registerLazySingleton(() => HasProfileUseCase(getIt()));
 }
 
 void initRepositories() {

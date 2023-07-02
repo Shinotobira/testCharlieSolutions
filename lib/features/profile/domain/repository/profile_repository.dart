@@ -6,4 +6,5 @@ import '../../../home/domain/entities/user_entity.dart';
 abstract class ProfileRepository {
   Future<Either<Failure, UserEntity>> getInformationUser();
   Future<Either<Failure, Unit>> sendInformationUser(UserEntity user);
+  Future<Either<Failure, bool>> hasProfile();
 }

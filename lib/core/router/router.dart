@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:testcharliesolutions/features/home/presentation/pages/home_page.dart';
 import 'package:testcharliesolutions/features/profile/presentation/pages/modification_page.dart';
 import 'package:testcharliesolutions/features/profile/presentation/pages/profile_page.dart';
 import 'package:testcharliesolutions/features/randomProfile/presentation/pages/best_profile_page.dart';
@@ -8,7 +9,7 @@ import 'package:testcharliesolutions/features/trainee/presentation/pages/search_
 import 'package:testcharliesolutions/features/trainee/presentation/pages/trainee_page.dart';
 
 import '../../features/home/domain/entities/user_entity.dart';
-import '../../features/home/presentation/pages/home_page.dart';
+import '../components/has_profile_component.dart';
 
 final GoRouter router = GoRouter(
   debugLogDiagnostics: true,
@@ -17,7 +18,14 @@ final GoRouter router = GoRouter(
       path: '/',
       name: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return const HomePage();
+        return HasProfileComponent();
+      },
+    ),
+    GoRoute(
+      path: '/home',
+      name: 'home',
+      builder: (BuildContext context, GoRouterState state) {
+        return HomePage();
       },
     ),
     GoRoute(

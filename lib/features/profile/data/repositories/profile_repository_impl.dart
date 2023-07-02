@@ -26,6 +26,19 @@ class ProfileRepositoryImpl implements ProfileRepository {
   }
 
   @override
+  Future<Either<Failure, bool>> hasProfile() async {
+    try {
+      final bool hasProfile = await profileDataSources.hasProfile();
+      return right(hasProfile);
+    } catch (e) {
+      log(e.toString());
+      return left(Failure(
+          message: 'La récupération a échouer',
+          timestamp: DateTime.now().millisecondsSinceEpoch));
+    }
+  }
+
+  @override
   Future<Either<Failure, Unit>> sendInformationUser(UserEntity user) async {
     try {
       await profileDataSources.insertUserData(user.toModel());

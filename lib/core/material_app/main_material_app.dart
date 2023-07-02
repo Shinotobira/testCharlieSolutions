@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:device_preview/device_preview.dart';
 import 'package:testcharliesolutions/features/profile/presentation/bloc/profile_bloc.dart';
 
 import '../../features/home/presentation/bloc/user_bloc.dart';
@@ -16,8 +15,7 @@ class MainMaterialApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: <BlocProvider<Bloc<dynamic, dynamic>>>[
         BlocProvider<UserBloc>(
-          create: (BuildContext context) =>
-              getIt<UserBloc>()..add(GetUserEvent()),
+          create: (BuildContext context) => getIt<UserBloc>(),
         ),
         BlocProvider<ProfileBloc>(
           create: (BuildContext context) => getIt<ProfileBloc>(),
@@ -27,8 +25,6 @@ class MainMaterialApp extends StatelessWidget {
         )
       ],
       child: MaterialApp.router(
-        locale: DevicePreview.locale(context),
-        builder: DevicePreview.appBuilder,
         debugShowCheckedModeBanner: false,
         title: 'CharlieSolutionsAlternance',
         routerConfig: router,

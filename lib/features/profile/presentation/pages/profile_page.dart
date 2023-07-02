@@ -38,7 +38,7 @@ class ProfilePage extends StatelessWidget {
             padding: EdgeInsets.only(right: screenWidth * 0.05),
             child: IconButton(
               onPressed: () {
-                context.pushNamed('/');
+                context.pushNamed('home');
               },
               icon: const Icon(Icons.close),
               iconSize: screenHeight * 0.025,

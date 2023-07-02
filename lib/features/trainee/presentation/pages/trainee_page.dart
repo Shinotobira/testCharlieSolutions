@@ -46,7 +46,7 @@ class TraineePage extends StatelessWidget {
                           context
                               .read<SearchBloc>()
                               .add(DeleteMatchEvent(id: user.id));
-                          context.pushNamed('/');
+                          context.pushNamed('home');
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.red,

@@ -33,7 +33,7 @@ class BestProfilePage extends StatelessWidget {
             padding: EdgeInsets.only(right: screenWidth * 0.02),
             child: IconButton(
               onPressed: () {
-                context.pushNamed('/');
+                context.pushNamed('home');
               },
               icon: const Icon(Icons.close),
               iconSize: screenHeight * 0.025,

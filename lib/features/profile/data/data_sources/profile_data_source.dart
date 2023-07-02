@@ -26,6 +26,20 @@ class ProfileDataSources {
     }
   }
 
+  Future<bool> hasProfile() async {
+    String databasesPath = await getDatabasesPath();
+    String dbPath = join(databasesPath, 'charlieSolutions.db');
+    Database database = await openDatabase(dbPath);
+    List<Map<String, dynamic>> tableData =
+        await database.query("user", where: "id = '1'");
+    await database.close();
+    if (tableData.isNotEmpty) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   Future<void> insertUserData(UserModel user) async {
     String databasesPath = await getDatabasesPath();
     String dbPath = join(databasesPath, 'charlieSolutions.db');
