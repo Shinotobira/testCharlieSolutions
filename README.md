@@ -28,10 +28,15 @@ Go to the project directory
 Install dependencies
 
 ```bash
-  pub get
+  flutter pub get
+  flutter channel master
 ```
 
+Launch the app
 
+```bash
+  flutter run main.dart
+```
 
 ## API Reference
 
