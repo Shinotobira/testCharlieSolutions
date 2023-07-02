@@ -43,7 +43,15 @@ class _ModificationProfilePageState extends State<ModificationProfilePage> {
     final double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Modification du profile'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          iconSize: screenHeight * 0.023,
+          onPressed: () {
+            context.pop();
+          },
+        ),
+        title: Text('Modification du profile',
+            style: TextStyle(fontSize: screenHeight * 0.025)),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -55,7 +63,7 @@ class _ModificationProfilePageState extends State<ModificationProfilePage> {
                 padding: EdgeInsets.only(top: screenHeight * 0.008),
                 child: Center(
                     child: SizedBox(
-                  height: screenHeight * 0.7,
+                  height: screenHeight * 0.695,
                   width: screenWidth * 0.80,
                   child: Card(
                     elevation: 10,
@@ -69,8 +77,8 @@ class _ModificationProfilePageState extends State<ModificationProfilePage> {
                         children: [
                           Padding(
                             padding: EdgeInsets.only(
-                                top: screenHeight * 0.04,
-                                bottom: screenHeight * 0.02),
+                                top: screenHeight * 0.02,
+                                bottom: screenHeight * 0.01),
                             child: Center(
                               child: Container(
                                 width: screenHeight * 0.15,
@@ -90,16 +98,22 @@ class _ModificationProfilePageState extends State<ModificationProfilePage> {
                           Center(
                             child: Padding(
                               padding: EdgeInsets.symmetric(
-                                  horizontal:
-                                      MediaQuery.of(context).size.width * 0.02),
+                                  horizontal: screenWidth * 0.02),
                               child: TextFormField(
                                 controller: nameController,
                                 keyboardType: TextInputType.text,
+                                style:
+                                    TextStyle(fontSize: screenHeight * 0.012),
                                 decoration: InputDecoration(
-                                    labelText: 'Nom, Prénom',
-                                    errorText: nameController.text.isNotEmpty
-                                        ? null
-                                        : 'Ce champ est requis'),
+                                  labelText: 'Nom, Prénom',
+                                  labelStyle:
+                                      TextStyle(fontSize: screenHeight * 0.014),
+                                  errorStyle:
+                                      TextStyle(fontSize: screenHeight * 0.014),
+                                  errorText: nameController.text.isNotEmpty
+                                      ? null
+                                      : 'Ce champ est requis',
+                                ),
                               ),
                             ),
                           ),
@@ -107,13 +121,18 @@ class _ModificationProfilePageState extends State<ModificationProfilePage> {
                             alignment: Alignment.centerLeft,
                             child: Padding(
                               padding: EdgeInsets.symmetric(
-                                  horizontal:
-                                      MediaQuery.of(context).size.width * 0.02),
+                                  horizontal: screenWidth * 0.02),
                               child: TextFormField(
                                 controller: phoneController,
                                 keyboardType: TextInputType.phone,
+                                style:
+                                    TextStyle(fontSize: screenHeight * 0.012),
                                 decoration: InputDecoration(
                                     labelText: 'Numéro',
+                                    labelStyle: TextStyle(
+                                        fontSize: screenHeight * 0.015),
+                                    errorStyle: TextStyle(
+                                        fontSize: screenHeight * 0.015),
                                     errorText: phoneController.text.isNotEmpty
                                         ? null
                                         : 'Ce champ est requis'),
@@ -124,13 +143,18 @@ class _ModificationProfilePageState extends State<ModificationProfilePage> {
                             alignment: Alignment.centerLeft,
                             child: Padding(
                               padding: EdgeInsets.symmetric(
-                                  horizontal:
-                                      MediaQuery.of(context).size.width * 0.02),
+                                  horizontal: screenWidth * 0.02),
                               child: TextFormField(
                                 controller: ageController,
                                 keyboardType: TextInputType.number,
+                                style:
+                                    TextStyle(fontSize: screenHeight * 0.014),
                                 decoration: InputDecoration(
                                     labelText: 'Age',
+                                    labelStyle: TextStyle(
+                                        fontSize: screenHeight * 0.014),
+                                    errorStyle: TextStyle(
+                                        fontSize: screenHeight * 0.014),
                                     errorText: ageController.text.isNotEmpty
                                         ? null
                                         : 'Ce champ est requis'),
@@ -141,13 +165,18 @@ class _ModificationProfilePageState extends State<ModificationProfilePage> {
                             alignment: Alignment.centerLeft,
                             child: Padding(
                               padding: EdgeInsets.symmetric(
-                                  horizontal:
-                                      MediaQuery.of(context).size.width * 0.02),
+                                  horizontal: screenWidth * 0.02),
                               child: TextFormField(
                                   controller: emailController,
                                   keyboardType: TextInputType.emailAddress,
+                                  style:
+                                      TextStyle(fontSize: screenHeight * 0.012),
                                   decoration: InputDecoration(
                                       labelText: 'Email',
+                                      labelStyle: TextStyle(
+                                          fontSize: screenHeight * 0.014),
+                                      errorStyle: TextStyle(
+                                          fontSize: screenHeight * 0.014),
                                       errorText: emailController.text.isNotEmpty
                                           ? null
                                           : 'Ce champ est requis')),
@@ -157,13 +186,18 @@ class _ModificationProfilePageState extends State<ModificationProfilePage> {
                             alignment: Alignment.centerLeft,
                             child: Padding(
                               padding: EdgeInsets.symmetric(
-                                  horizontal:
-                                      MediaQuery.of(context).size.width * 0.02),
+                                  horizontal: screenWidth * 0.02),
                               child: TextFormField(
                                 controller: adresseController,
+                                style:
+                                    TextStyle(fontSize: screenHeight * 0.012),
                                 keyboardType: TextInputType.text,
                                 decoration: InputDecoration(
                                     labelText: 'Adresse',
+                                    labelStyle: TextStyle(
+                                        fontSize: screenHeight * 0.014),
+                                    errorStyle: TextStyle(
+                                        fontSize: screenHeight * 0.014),
                                     errorText: adresseController.text.isNotEmpty
                                         ? null
                                         : 'Ce champ est requis'),
@@ -208,7 +242,11 @@ class _ModificationProfilePageState extends State<ModificationProfilePage> {
                             ),
                             minimumSize:
                                 Size(screenWidth * 0.1, screenHeight * 0.055)),
-                        child: const Text('Valider'),
+                        child: Padding(
+                          padding: EdgeInsets.all(screenHeight * 0.01),
+                          child: Text('Valider',
+                              style: TextStyle(fontSize: screenHeight * 0.025)),
+                        ),
                       ),
                     ],
                   ),

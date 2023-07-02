@@ -149,11 +149,15 @@ class UserCardWidget extends StatelessWidget {
                     top: screenHeight * 0.04),
                 child: Row(
                   children: [
-                    const Icon(Icons.calendar_month),
+                    Icon(
+                      Icons.calendar_month,
+                      size: screenHeight * 0.030,
+                    ),
                     Flexible(
                       child: Text(
                         ': ${user.age} ans',
                         overflow: TextOverflow.ellipsis,
+                        style: TextStyle(fontSize: screenHeight * 0.022),
                       ),
                     ),
                   ],
@@ -169,11 +173,15 @@ class UserCardWidget extends StatelessWidget {
                     top: screenHeight * 0.04),
                 child: Row(
                   children: [
-                    const Icon(Icons.phone),
+                    Icon(
+                      Icons.phone,
+                      size: screenHeight * 0.030,
+                    ),
                     Flexible(
                       child: Text(
                         ': ${user.phone}',
                         overflow: TextOverflow.ellipsis,
+                        style: TextStyle(fontSize: screenHeight * 0.022),
                       ),
                     ),
                   ],
@@ -189,11 +197,15 @@ class UserCardWidget extends StatelessWidget {
                     top: screenHeight * 0.04),
                 child: Row(
                   children: [
-                    const Icon(Icons.email),
+                    Icon(
+                      Icons.email,
+                      size: screenHeight * 0.030,
+                    ),
                     Flexible(
                       child: Text(
                         ': ${user.email}',
                         overflow: TextOverflow.ellipsis,
+                        style: TextStyle(fontSize: screenHeight * 0.022),
                       ),
                     ),
                   ],
@@ -209,11 +221,15 @@ class UserCardWidget extends StatelessWidget {
                     top: screenHeight * 0.04),
                 child: Row(
                   children: [
-                    const Icon(Icons.home),
+                    Icon(
+                      Icons.home,
+                      size: screenHeight * 0.030,
+                    ),
                     Flexible(
                       child: Text(
                         ': ${user.locations}',
                         overflow: TextOverflow.ellipsis,
+                        style: TextStyle(fontSize: screenHeight * 0.022),
                       ),
                     ),
                   ],

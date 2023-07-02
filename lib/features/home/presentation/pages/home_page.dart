@@ -26,7 +26,10 @@ class HomePage extends StatelessWidget {
               },
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: screenHeight * 0.024),
-                child: const Text('Profile'),
+                child: Text(
+                  'Profile',
+                  style: TextStyle(fontSize: screenHeight * 0.025),
+                ),
               ),
             ),
           ),
@@ -44,7 +47,10 @@ class HomePage extends StatelessWidget {
                 child: Padding(
                   padding:
                       EdgeInsets.symmetric(horizontal: screenHeight * 0.024),
-                  child: const Text('Alternant'),
+                  child: Text(
+                    'Alternant',
+                    style: TextStyle(fontSize: screenHeight * 0.025),
+                  ),
                 ),
               ),
             ),
@@ -70,16 +76,23 @@ class HomePage extends StatelessWidget {
                             shape: const CircleBorder(),
                             padding: EdgeInsets.all(screenHeight * 0.02),
                           ),
-                          child: const Icon(Icons.close)),
+                          child: Icon(
+                            Icons.close,
+                            size: screenHeight * 0.035,
+                          )),
                       ElevatedButton(
-                          onPressed: () {
-                            context.pushNamed('random_profile');
-                          },
-                          style: ElevatedButton.styleFrom(
-                            shape: const CircleBorder(),
-                            padding: EdgeInsets.all(screenHeight * 0.02),
-                          ),
-                          child: const Icon(Icons.question_mark)),
+                        onPressed: () {
+                          context.pushNamed('random_profile');
+                        },
+                        style: ElevatedButton.styleFrom(
+                          shape: const CircleBorder(),
+                          padding: EdgeInsets.all(screenHeight * 0.02),
+                        ),
+                        child: Icon(
+                          Icons.question_mark,
+                          size: screenHeight * 0.035,
+                        ),
+                      ),
                       ElevatedButton(
                           onPressed: () {
                             context.read<UserBloc>().add(SendUserEvent());
@@ -91,7 +104,10 @@ class HomePage extends StatelessWidget {
                             shape: const CircleBorder(),
                             padding: EdgeInsets.all(screenHeight * 0.02),
                           ),
-                          child: const Icon(Icons.check)),
+                          child: Icon(
+                            Icons.check,
+                            size: screenHeight * 0.035,
+                          )),
                     ]),
               )
             ]),

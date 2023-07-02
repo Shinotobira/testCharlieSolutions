@@ -14,7 +14,7 @@ class _RandomProfilePageState extends State<RandomProfilePage>
     "Requête a ChatGPT...",
     "Requête a Bard...",
     "Verification des photos sur Dall-e...",
-    "Grace a une IA avancé voici le meilleur alternant trouver !"
+    "Grace a une IA avancé voici le meilleur alternant !"
   ];
   int currentIndex = 0;
   String currentText = '';
@@ -101,15 +101,26 @@ class _RandomProfilePageState extends State<RandomProfilePage>
     final double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('RandomProfile'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          iconSize: screenHeight * 0.025,
+          onPressed: () {
+            context.pop();
+          },
+        ),
+        title: Text(
+          'RandomProfile',
+          style: TextStyle(fontSize: screenHeight * 0.025),
+        ),
         centerTitle: true,
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: screenHeight * 0.002),
-        child: Center(
+        child: Align(
+          alignment: Alignment.center,
           child: Text(
             currentText,
-            style: TextStyle(fontSize: screenHeight * 0.022),
+            style: TextStyle(fontSize: screenHeight * 0.020),
           ),
         ),
       ),

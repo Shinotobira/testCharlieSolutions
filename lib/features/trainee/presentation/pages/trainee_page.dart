@@ -16,10 +16,12 @@ class TraineePage extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Profile'),
+          title:
+              Text('Profile', style: TextStyle(fontSize: screenHeight * 0.025)),
           centerTitle: true,
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
+            iconSize: screenHeight * 0.025,
             onPressed: () {
               context.read<SearchBloc>().add(const GetListUserEvent(value: ''));
               context.pop();
@@ -40,18 +42,22 @@ class TraineePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       ElevatedButton(
-                          onPressed: () {
-                            context
-                                .read<SearchBloc>()
-                                .add(DeleteMatchEvent(id: user.id));
-                            context.pushNamed('/');
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.red,
-                            shape: const CircleBorder(),
-                            padding: EdgeInsets.all(screenHeight * 0.02),
-                          ),
-                          child: const Icon(Icons.close)),
+                        onPressed: () {
+                          context
+                              .read<SearchBloc>()
+                              .add(DeleteMatchEvent(id: user.id));
+                          context.pushNamed('/');
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.red,
+                          shape: const CircleBorder(),
+                          padding: EdgeInsets.all(screenHeight * 0.02),
+                        ),
+                        child: Icon(
+                          Icons.close,
+                          size: screenHeight * 0.035,
+                        ),
+                      ),
                     ]),
               )
             ]),

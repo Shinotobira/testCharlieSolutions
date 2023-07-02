@@ -18,19 +18,26 @@ class BestProfilePage extends StatelessWidget {
         email: 'anthonyparent02@gmail.com');
 
     final double screenWidth = MediaQuery.of(context).size.width;
+    final double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
-        leading: Container(),
-        title: const Text('Profile'),
+        automaticallyImplyLeading: false,
+        title: Text(
+          'Profile',
+          style: TextStyle(fontSize: screenHeight * 0.025),
+        ),
         centerTitle: true,
         actions: [
           Padding(
-            padding: EdgeInsets.only(right: screenWidth * 0.05),
-            child: InkWell(
-                onTap: () {
-                  context.pushNamed('/');
-                },
-                child: const Icon(Icons.close)),
+            padding: EdgeInsets.only(right: screenWidth * 0.02),
+            child: IconButton(
+              onPressed: () {
+                context.pushNamed('/');
+              },
+              icon: const Icon(Icons.close),
+              iconSize: screenHeight * 0.025,
+            ),
           ),
         ],
       ),

@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
@@ -9,7 +10,11 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initInjectionDependencies();
   await createDatabase();
-  runApp(const MainMaterialApp());
+  runApp(
+    DevicePreview(
+      builder: (context) => const MainMaterialApp(),
+    ),
+  );
 }
 
 Future<void> createDatabase() async {

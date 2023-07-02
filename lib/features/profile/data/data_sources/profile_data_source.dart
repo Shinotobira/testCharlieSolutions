@@ -19,10 +19,10 @@ class ProfileDataSources {
           id: '1',
           age: 0,
           picture: '',
-          name: 'nAn nAn',
-          phone: 'nAn',
-          locations: 'nAn',
-          email: 'nAn');
+          name: '',
+          phone: '',
+          locations: '',
+          email: '');
     }
   }
 

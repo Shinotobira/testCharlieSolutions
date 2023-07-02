@@ -14,7 +14,17 @@ class SearchProfilePage extends StatelessWidget {
     final double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Recherche'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          iconSize: screenHeight * 0.025,
+          onPressed: () {
+            context.pop();
+          },
+        ),
+        title: Text(
+          'Recherche',
+          style: TextStyle(fontSize: screenHeight * 0.025),
+        ),
         centerTitle: true,
       ),
       body: Column(
@@ -22,12 +32,13 @@ class SearchProfilePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(screenHeight * 0.02),
             child: TextField(
+              style: TextStyle(fontSize: screenHeight * 0.022),
               onChanged: (String value) {
                 context.read<SearchBloc>().add(GetListUserEvent(value: value));
               },
               decoration: InputDecoration(
                 labelText: 'Rechercher un profile',
-                prefixIcon: const Icon(Icons.search),
+                prefixIcon: Icon(Icons.search, size: screenHeight * 0.035),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(screenHeight * 0.025),
                 ),
@@ -40,8 +51,9 @@ class SearchProfilePage extends StatelessWidget {
               final List<UserEntity> usersList = state.usersListEntity;
 
               if (usersList.isEmpty) {
-                return const Center(
-                  child: Text('Aucun résultat trouvé.'),
+                return Center(
+                  child: Text('Aucun résultat trouvé.',
+                      style: TextStyle(fontSize: screenHeight * 0.025)),
                 );
               } else {
                 return Expanded(
@@ -50,25 +62,35 @@ class SearchProfilePage extends StatelessWidget {
                     itemBuilder: (BuildContext context, int index) {
                       final UserEntity user = usersList[index];
 
-                      return ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: NetworkImage(user.picture),
+                      return Padding(
+                        padding: EdgeInsets.only(bottom: screenHeight * 0.02),
+                        child: ListTile(
+                          leading: ClipOval(
+                            child: Image.network(
+                              width: screenHeight * 0.065,
+                              height: screenHeight * 0.065,
+                              user.picture,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          title: Text(user.name,
+                              style: TextStyle(fontSize: screenHeight * 0.025)),
+                          subtitle: Text('Age: ${user.age}',
+                              style: TextStyle(fontSize: screenHeight * 0.020)),
+                          onTap: () {
+                            context.read<UserBloc>().add(GetUserEvent());
+                            context.pushNamed('trainee', extra: user);
+                          },
                         ),
-                        title: Text(user.name),
-                        subtitle: Text('Age: ${user.age}'),
-                        onTap: () {
-                          context.read<UserBloc>().add(GetUserEvent());
-
-                          context.pushNamed('trainee', extra: user);
-                        },
                       );
                     },
                   ),
                 );
               }
             } else {
-              return const Center(
-                child: Text('Faites une recherche.'),
+              return Center(
+                child: Text('Faites une recherche.',
+                    style: TextStyle(fontSize: screenHeight * 0.020)),
               );
             }
           }),

@@ -23,16 +23,26 @@ class ProfilePage extends StatelessWidget {
         email: '');
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile'),
+        title:
+            Text('Profile', style: TextStyle(fontSize: screenHeight * 0.025)),
         centerTitle: true,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          iconSize: screenHeight * 0.025,
+          onPressed: () {
+            context.pop();
+          },
+        ),
         actions: [
           Padding(
             padding: EdgeInsets.only(right: screenWidth * 0.05),
-            child: InkWell(
-                onTap: () {
-                  context.pushNamed('/');
-                },
-                child: const Icon(Icons.close)),
+            child: IconButton(
+              onPressed: () {
+                context.pushNamed('/');
+              },
+              icon: const Icon(Icons.close),
+              iconSize: screenHeight * 0.025,
+            ),
           ),
         ],
       ),
@@ -68,7 +78,13 @@ class ProfilePage extends StatelessWidget {
                         ),
                         minimumSize:
                             Size(screenWidth * 0.1, screenHeight * 0.055)),
-                    child: const Text('Modifier'),
+                    child: Padding(
+                      padding: EdgeInsets.all(screenHeight * 0.01),
+                      child: Text(
+                        'Modifier',
+                        style: TextStyle(fontSize: screenHeight * 0.025),
+                      ),
+                    ),
                   ),
                 ),
               ),
