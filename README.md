@@ -1,16 +1,52 @@
-# testcharliesolutions
 
-A new Flutter project.
+# Test Charlie Solutions
 
-## Getting Started
+Ce projet est une application mobile faite en flutter en 3 jour et demi pour le test la start-up Charlie Solutions. Cette application consiste Match des profiles d'alternant pour les recruter, elle effecue une appelle a une API. et stock les matchs ainsi que notre profile en base de donnée.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Tech Stack
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+**Client:** Dart, Flutter
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+**DataBase:** Sqlite
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/Shinotobira/testCharlieSolutions
+```
+
+Go to the project directory
+
+```bash
+  cd testCharlieSolutions
+```
+
+Install dependencies
+
+```bash
+  pub get
+```
+
+
+
+## API Reference
+
+#### Get all items
+
+```http
+  https://randomuser.me/api/?results=100
+```
+
+
+
+
+
+
+## Authors
+
+- [@Shinotobira](https://github.com/Shinotobira)
+
