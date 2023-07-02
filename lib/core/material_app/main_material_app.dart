@@ -16,7 +16,8 @@ class MainMaterialApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: <BlocProvider<Bloc<dynamic, dynamic>>>[
         BlocProvider<UserBloc>(
-          create: (BuildContext context) => getIt<UserBloc>(),
+          create: (BuildContext context) =>
+              getIt<UserBloc>()..add(GetUserEvent()),
         ),
         BlocProvider<ProfileBloc>(
           create: (BuildContext context) => getIt<ProfileBloc>(),

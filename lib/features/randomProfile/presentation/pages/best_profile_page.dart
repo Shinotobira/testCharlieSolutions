@@ -20,30 +20,35 @@ class BestProfilePage extends StatelessWidget {
     final double screenWidth = MediaQuery.of(context).size.width;
     final double screenHeight = MediaQuery.of(context).size.height;
 
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text(
-          'Profile',
-          style: TextStyle(fontSize: screenHeight * 0.025),
-        ),
-        centerTitle: true,
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(right: screenWidth * 0.02),
-            child: IconButton(
-              onPressed: () {
-                context.pushNamed('home');
-              },
-              icon: const Icon(Icons.close),
-              iconSize: screenHeight * 0.025,
-            ),
+    return WillPopScope(
+      onWillPop: () async {
+        return false;
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          title: Text(
+            'Profile',
+            style: TextStyle(fontSize: screenHeight * 0.025),
           ),
-        ],
-      ),
-      body: Center(
-        child: UserCardWidget(
-          user: user,
+          centerTitle: true,
+          actions: [
+            Padding(
+              padding: EdgeInsets.only(right: screenWidth * 0.02),
+              child: IconButton(
+                onPressed: () {
+                  context.pushNamed('home');
+                },
+                icon: const Icon(Icons.close),
+                iconSize: screenHeight * 0.025,
+              ),
+            ),
+          ],
+        ),
+        body: Center(
+          child: UserCardWidget(
+            user: user,
+          ),
         ),
       ),
     );

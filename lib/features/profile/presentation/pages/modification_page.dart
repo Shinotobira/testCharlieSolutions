@@ -103,14 +103,13 @@ class _ModificationProfilePageState extends State<ModificationProfilePage> {
                               child: TextFormField(
                                 controller: nameController,
                                 keyboardType: TextInputType.text,
-                                style:
-                                    TextStyle(fontSize: screenHeight * 0.012),
+                                style: TextStyle(fontSize: screenHeight * 0.02),
                                 decoration: InputDecoration(
                                   labelText: 'Nom, Prénom',
                                   labelStyle:
-                                      TextStyle(fontSize: screenHeight * 0.014),
+                                      TextStyle(fontSize: screenHeight * 0.022),
                                   errorStyle:
-                                      TextStyle(fontSize: screenHeight * 0.014),
+                                      TextStyle(fontSize: screenHeight * 0.022),
                                   errorText: nameController.text.isNotEmpty
                                       ? null
                                       : 'Ce champ est requis',
@@ -127,13 +126,13 @@ class _ModificationProfilePageState extends State<ModificationProfilePage> {
                                 controller: phoneController,
                                 keyboardType: TextInputType.phone,
                                 style:
-                                    TextStyle(fontSize: screenHeight * 0.012),
+                                    TextStyle(fontSize: screenHeight * 0.020),
                                 decoration: InputDecoration(
                                     labelText: 'Numéro',
                                     labelStyle: TextStyle(
-                                        fontSize: screenHeight * 0.015),
+                                        fontSize: screenHeight * 0.022),
                                     errorStyle: TextStyle(
-                                        fontSize: screenHeight * 0.015),
+                                        fontSize: screenHeight * 0.022),
                                     errorText: phoneController.text.isNotEmpty
                                         ? null
                                         : 'Ce champ est requis'),
@@ -149,13 +148,13 @@ class _ModificationProfilePageState extends State<ModificationProfilePage> {
                                 controller: ageController,
                                 keyboardType: TextInputType.number,
                                 style:
-                                    TextStyle(fontSize: screenHeight * 0.014),
+                                    TextStyle(fontSize: screenHeight * 0.020),
                                 decoration: InputDecoration(
                                     labelText: 'Age',
                                     labelStyle: TextStyle(
-                                        fontSize: screenHeight * 0.014),
+                                        fontSize: screenHeight * 0.022),
                                     errorStyle: TextStyle(
-                                        fontSize: screenHeight * 0.014),
+                                        fontSize: screenHeight * 0.022),
                                     errorText: ageController.text.isNotEmpty
                                         ? null
                                         : 'Ce champ est requis'),
@@ -171,13 +170,13 @@ class _ModificationProfilePageState extends State<ModificationProfilePage> {
                                   controller: emailController,
                                   keyboardType: TextInputType.emailAddress,
                                   style:
-                                      TextStyle(fontSize: screenHeight * 0.012),
+                                      TextStyle(fontSize: screenHeight * 0.020),
                                   decoration: InputDecoration(
                                       labelText: 'Email',
                                       labelStyle: TextStyle(
-                                          fontSize: screenHeight * 0.014),
+                                          fontSize: screenHeight * 0.022),
                                       errorStyle: TextStyle(
-                                          fontSize: screenHeight * 0.014),
+                                          fontSize: screenHeight * 0.022),
                                       errorText: emailController.text.isNotEmpty
                                           ? null
                                           : 'Ce champ est requis')),
@@ -190,15 +189,14 @@ class _ModificationProfilePageState extends State<ModificationProfilePage> {
                                   horizontal: screenWidth * 0.02),
                               child: TextFormField(
                                 controller: adresseController,
-                                style:
-                                    TextStyle(fontSize: screenHeight * 0.012),
+                                style: TextStyle(fontSize: screenHeight * 0.02),
                                 keyboardType: TextInputType.text,
                                 decoration: InputDecoration(
                                     labelText: 'Adresse',
                                     labelStyle: TextStyle(
-                                        fontSize: screenHeight * 0.014),
+                                        fontSize: screenHeight * 0.022),
                                     errorStyle: TextStyle(
-                                        fontSize: screenHeight * 0.014),
+                                        fontSize: screenHeight * 0.022),
                                     errorText: adresseController.text.isNotEmpty
                                         ? null
                                         : 'Ce champ est requis'),
