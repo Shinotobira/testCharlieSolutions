@@ -95,7 +95,16 @@ class HomePage extends StatelessWidget {
                       ElevatedButton(
                           onPressed: () {
                             context.read<UserBloc>().add(SendUserEvent());
-
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                backgroundColor: Colors.green,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(
+                                      screenHeight * 0.04),
+                                ),
+                                behavior: SnackBarBehavior.floating,
+                                width: screenWidth * 0.8,
+                                content: const Text(
+                                    "Vous avez validé cet alternant")));
                             context.read<UserBloc>().add(GetUserEvent());
                           },
                           style: ElevatedButton.styleFrom(

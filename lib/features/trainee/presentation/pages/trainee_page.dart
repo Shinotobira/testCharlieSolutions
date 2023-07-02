@@ -14,6 +14,8 @@ class TraineePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
 
+    final double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
         appBar: AppBar(
           title:
@@ -46,6 +48,16 @@ class TraineePage extends StatelessWidget {
                           context
                               .read<SearchBloc>()
                               .add(DeleteMatchEvent(id: user.id));
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              backgroundColor: Colors.green,
+                              shape: RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.circular(screenHeight * 0.04),
+                              ),
+                              behavior: SnackBarBehavior.floating,
+                              width: screenWidth * 0.8,
+                              content:
+                                  const Text("Cet alternant a été supprimé")));
                           context.pushNamed('home');
                         },
                         style: ElevatedButton.styleFrom(
