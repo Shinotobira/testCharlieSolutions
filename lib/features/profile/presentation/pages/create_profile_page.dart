@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../home/domain/entities/user_entity.dart';
-import '../bloc/profile_bloc.dart';
+import '../bloc/profile_bloc/profile_bloc.dart';
 
 class CreateProfilePage extends StatefulWidget {
   const CreateProfilePage({super.key});
@@ -184,6 +184,7 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
                         children: [
                           ElevatedButton(
                             onPressed: () {
+                              print("test");
                               if (isFormValid()) {
                                 UserEntity user = UserEntity(
                                     id: '1',

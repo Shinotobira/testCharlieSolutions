@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:testcharliesolutions/features/profile/presentation/bloc/profile_bloc.dart';
 
+import '../../../profile/presentation/bloc/profile_bloc/profile_bloc.dart';
 import '../../../trainee/presentation/bloc/search_bloc.dart';
 import '../bloc/user_bloc.dart';
 import '../widgets/home_widget.dart';
@@ -14,7 +14,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
         appBar: AppBar(
           leading: Align(

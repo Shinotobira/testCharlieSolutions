@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:testcharliesolutions/features/home/domain/entities/user_entity.dart';
-import 'package:testcharliesolutions/features/profile/presentation/bloc/profile_bloc.dart';
+
+import '../bloc/profile_bloc/profile_bloc.dart';
 
 class ModificationProfilePage extends StatefulWidget {
   const ModificationProfilePage({super.key, required this.user});

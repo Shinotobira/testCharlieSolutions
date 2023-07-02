@@ -6,7 +6,7 @@ import 'package:testcharliesolutions/features/profile/domain/repository/profile_
 import 'package:testcharliesolutions/features/profile/domain/use_cases/get_profile_use_case.dart';
 import 'package:testcharliesolutions/features/profile/domain/use_cases/has_profile_use_case.dart';
 import 'package:testcharliesolutions/features/profile/domain/use_cases/send_information_profile_use_case.dart';
-import 'package:testcharliesolutions/features/profile/presentation/bloc/profile_bloc.dart';
+import 'package:testcharliesolutions/features/profile/presentation/bloc/has_profile_bloc/has_profile_bloc.dart';
 import 'package:testcharliesolutions/features/trainee/data/data_sources/search_data_source.dart';
 import 'package:testcharliesolutions/features/trainee/data/repositories/search_repository_impl.dart';
 import 'package:testcharliesolutions/features/trainee/domain/repository/search_repository.dart';
@@ -19,6 +19,7 @@ import '../../features/home/data/repositories/user_information_repository_impl.d
 import '../../features/home/domain/repository/user_information_repository.dart';
 import '../../features/home/domain/use_cases/get_user_information_use_case.dart';
 import '../../features/home/presentation/bloc/user_bloc.dart';
+import '../../features/profile/presentation/bloc/profile_bloc/profile_bloc.dart';
 
 final GetIt getIt = GetIt.I;
 
@@ -35,11 +36,12 @@ void initBloc() {
   getIt.registerFactory(() => UserBloc(
       getUserInformationUseCase: getIt(), sendUserInformationUseCase: getIt()));
   getIt.registerFactory(() => ProfileBloc(
-      getProfileUseCase: getIt(),
-      sendInformationUseCase: getIt(),
-      hasProfileUseCase: getIt()));
+        getProfileUseCase: getIt(),
+        sendInformationUseCase: getIt(),
+      ));
   getIt.registerFactory(() => SearchBloc(
       getUserListFromResearchUseCase: getIt(), deleteMatchUseCase: getIt()));
+  getIt.registerFactory(() => HasProfileBloc(hasProfileUseCase: getIt()));
 }
 
 void initUseCase() {

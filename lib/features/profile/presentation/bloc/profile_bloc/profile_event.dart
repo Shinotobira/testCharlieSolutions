@@ -19,9 +19,3 @@ class SendMyUserEvent extends ProfileEvent {
   @override
   List<UserEntity> get props => <UserEntity>[userEntity];
 }
-
-class HasProfileEvent extends ProfileEvent {
-  const HasProfileEvent();
-  @override
-  List<Object?> get props => <Object>[];
-}

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:testcharliesolutions/features/home/domain/entities/user_entity.dart';
-import 'package:testcharliesolutions/features/profile/presentation/bloc/profile_bloc.dart';
 
 import '../../../home/presentation/widgets/card_widget.dart';
+import '../bloc/profile_bloc/profile_bloc.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
