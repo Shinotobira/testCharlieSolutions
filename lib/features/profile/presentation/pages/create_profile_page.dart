@@ -66,13 +66,13 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
                                     controller: nameController,
                                     keyboardType: TextInputType.text,
                                     style: TextStyle(
-                                        fontSize: screenHeight * 0.012),
+                                        fontSize: screenHeight * 0.018),
                                     decoration: InputDecoration(
                                       labelText: 'Nom, Prénom',
                                       labelStyle: TextStyle(
-                                          fontSize: screenHeight * 0.014),
+                                          fontSize: screenHeight * 0.02),
                                       errorStyle: TextStyle(
-                                          fontSize: screenHeight * 0.014),
+                                          fontSize: screenHeight * 0.02),
                                       errorText: nameController.text.isNotEmpty
                                           ? null
                                           : 'Ce champ est requis',
@@ -89,13 +89,13 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
                                     controller: phoneController,
                                     keyboardType: TextInputType.phone,
                                     style: TextStyle(
-                                        fontSize: screenHeight * 0.012),
+                                        fontSize: screenHeight * 0.018),
                                     decoration: InputDecoration(
                                         labelText: 'Numéro',
                                         labelStyle: TextStyle(
-                                            fontSize: screenHeight * 0.015),
+                                            fontSize: screenHeight * 0.020),
                                         errorStyle: TextStyle(
-                                            fontSize: screenHeight * 0.015),
+                                            fontSize: screenHeight * 0.020),
                                         errorText:
                                             phoneController.text.isNotEmpty
                                                 ? null
@@ -112,13 +112,13 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
                                     controller: ageController,
                                     keyboardType: TextInputType.number,
                                     style: TextStyle(
-                                        fontSize: screenHeight * 0.014),
+                                        fontSize: screenHeight * 0.018),
                                     decoration: InputDecoration(
                                         labelText: 'Age',
                                         labelStyle: TextStyle(
-                                            fontSize: screenHeight * 0.014),
+                                            fontSize: screenHeight * 0.02),
                                         errorStyle: TextStyle(
-                                            fontSize: screenHeight * 0.014),
+                                            fontSize: screenHeight * 0.02),
                                         errorText: ageController.text.isNotEmpty
                                             ? null
                                             : 'Ce champ est requis'),
@@ -134,13 +134,13 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
                                       controller: emailController,
                                       keyboardType: TextInputType.emailAddress,
                                       style: TextStyle(
-                                          fontSize: screenHeight * 0.012),
+                                          fontSize: screenHeight * 0.018),
                                       decoration: InputDecoration(
                                           labelText: 'Email',
                                           labelStyle: TextStyle(
-                                              fontSize: screenHeight * 0.014),
+                                              fontSize: screenHeight * 0.02),
                                           errorStyle: TextStyle(
-                                              fontSize: screenHeight * 0.014),
+                                              fontSize: screenHeight * 0.02),
                                           errorText:
                                               emailController.text.isNotEmpty
                                                   ? null
@@ -155,14 +155,14 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
                                   child: TextFormField(
                                     controller: adresseController,
                                     style: TextStyle(
-                                        fontSize: screenHeight * 0.012),
+                                        fontSize: screenHeight * 0.018),
                                     keyboardType: TextInputType.text,
                                     decoration: InputDecoration(
                                         labelText: 'Adresse',
                                         labelStyle: TextStyle(
-                                            fontSize: screenHeight * 0.014),
+                                            fontSize: screenHeight * 0.02),
                                         errorStyle: TextStyle(
-                                            fontSize: screenHeight * 0.014),
+                                            fontSize: screenHeight * 0.02),
                                         errorText:
                                             adresseController.text.isNotEmpty
                                                 ? null
