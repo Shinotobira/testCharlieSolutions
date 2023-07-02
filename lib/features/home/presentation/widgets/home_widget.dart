@@ -14,9 +14,7 @@ class HomeWidget extends StatelessWidget {
     final double screenHeight = MediaQuery.of(context).size.height;
     return BlocBuilder<UserBloc, UserState>(
       builder: (BuildContext context, UserState state) {
-        if (state is GetUserInitialState) {
-          return Container();
-        } else if (state is GetUserSuccessState) {
+        if (state is GetUserSuccessState) {
           return UserCardWidget(
             user: state.userEntity,
           );
